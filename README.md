@@ -1,4 +1,4 @@
-# SimpleLocalCI
+# Continuus Lenimentus [![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=master)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus)
 
 A SimpleCov Formatter for Local CI.
 
@@ -6,7 +6,7 @@ A SimpleCov Formatter for Local CI.
 
 Add this line to your application's Gemfile:
 
-    gem 'simple-local-ci', '~> 0.0.1'
+    gem 'continuus_lenimentus', '~> 0.0.1'
 
 And then execute:
 
@@ -14,11 +14,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple-local-ci
+    $ gem install continuus_lenimentus
 
 ## Usage
 
-Within your applications `.simplecov` file add `SimpleLocalCI` as a formatter.
+Within your applications `.simplecov` file add `ContinuusLenimentus` as a formatter.
 
     require 'simple-local-ci'
 
@@ -26,7 +26,7 @@ Within your applications `.simplecov` file add `SimpleLocalCI` as a formatter.
       start('rails') do
         formatter SimpleCov::Formatter::MultiFormatter[
           SimpleCov::Formatter::HTMLFormatter,
-          SimpleCov::Formatter::SimpleLocalCI
+          SimpleCov::Formatter::ContinuusLenimentus
         ]
       end
     end
@@ -37,7 +37,7 @@ Each time you run your spec suite a file will be generated.
 
 * ruby > 1.9.x
 
-## Contributing
+## Contributing [![Maintained Status](http://stillmaintained.com/ChuckJHardy/ContinuusLenimentus.png)](http://stillmaintained.com/ChuckJHardy/ContinuusLenimentus)
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
