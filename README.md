@@ -1,4 +1,4 @@
-# SimpleLocalCI
+# Continuus Lenimentus
 
 A SimpleCov Formatter for Local CI.
 
@@ -6,7 +6,7 @@ A SimpleCov Formatter for Local CI.
 
 Add this line to your application's Gemfile:
 
-    gem 'simple-local-ci', '~> 0.0.1'
+    gem 'continuus_lenimentus', '~> 0.0.1'
 
 And then execute:
 
@@ -14,11 +14,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install simple-local-ci
+    $ gem install continuus_lenimentus
 
 ## Usage
 
-Within your applications `.simplecov` file add `SimpleLocalCI` as a formatter.
+Within your applications `.simplecov` file add `ContinuusLenimentus` as a formatter.
 
     require 'simple-local-ci'
 
@@ -26,7 +26,7 @@ Within your applications `.simplecov` file add `SimpleLocalCI` as a formatter.
       start('rails') do
         formatter SimpleCov::Formatter::MultiFormatter[
           SimpleCov::Formatter::HTMLFormatter,
-          SimpleCov::Formatter::SimpleLocalCI
+          SimpleCov::Formatter::ContinuusLenimentus
         ]
       end
     end
