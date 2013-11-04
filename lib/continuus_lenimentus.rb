@@ -10,4 +10,9 @@ module ContinuusLenimentus
     yield(configuration)
     configuration
   end
+
+  class SimpleCov::Formatter::ContinuusLenimentus
+    def format(result)
+    end
+  end
 end
