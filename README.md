@@ -1,4 +1,4 @@
-# Continuus Lenimentus
+# Continuus Lenimentus [![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=master)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus)
 
 A SimpleCov Formatter for Local CI.
 
@@ -37,7 +37,7 @@ Each time you run your spec suite a file will be generated.
 
 * ruby > 1.9.x
 
-## Contributing
+## Contributing [![Maintained Status](http://stillmaintained.com/ChuckJHardy/ContinuusLenimentus.png)](http://stillmaintained.com/ChuckJHardy/ContinuusLenimentus)
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
