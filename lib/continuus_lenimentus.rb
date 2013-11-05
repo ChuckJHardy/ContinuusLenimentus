@@ -1,5 +1,6 @@
 require "continuus_lenimentus/configuration"
 require "continuus_lenimentus/version"
+require "continuus_lenimentus/adapter"
 require "continuus_lenimentus/path"
 
 module ContinuusLenimentus
