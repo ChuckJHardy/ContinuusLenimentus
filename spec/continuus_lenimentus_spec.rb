@@ -30,7 +30,7 @@ describe ContinuusLenimentus do
   describe '#format' do
     subject { formatter.format(result)  }
 
-    let(:formatter) { SimpleCov::Formatter::ContinuusLenimentus.new }
+    let(:formatter) { SimpleCov::Formatter::ContinuusLenimentusFormatter.new }
     let(:result) do
       double(
         'SimpleCov::Result',
