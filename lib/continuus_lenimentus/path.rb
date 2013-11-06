@@ -1,5 +1,9 @@
 module ContinuusLenimentus
   class Path
+    def self.full
+      new.full
+    end
+
     def full
       File.join(directory, file)
     end

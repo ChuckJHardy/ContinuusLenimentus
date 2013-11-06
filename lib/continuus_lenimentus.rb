@@ -3,6 +3,7 @@ require "continuus_lenimentus/version"
 require "continuus_lenimentus/safe"
 require "continuus_lenimentus/adapter"
 require "continuus_lenimentus/path"
+require "continuus_lenimentus/save"
 
 module ContinuusLenimentus
   def self.configuration
