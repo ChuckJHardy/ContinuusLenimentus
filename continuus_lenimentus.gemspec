@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ContinuusLenimentus::VERSION
   spec.authors       = ["Chuck J hardy"]
   spec.email         = ["chuckjhardy@gmail.com"]
-  spec.description   = %q{A SimpleCov Formatter for Local CI}
-  spec.summary       = %q{A SimpleCov Formatter for Local CI}
+  spec.description   = %q{A SimpleCov Formatter for Continuus Lenimentus Local CI.}
+  spec.summary       = %q{A SimpleCov Formatter for Continuus Lenimentus Local CI. When the spec suite is run a file is generated with data on the state of the test suite. This is encrypted with a key to ensure minimal conflicts when using version control.}
   spec.homepage      = "https://github.com/ChuckJHardy/SimpleLocalCI"
   spec.license       = "MIT"
 

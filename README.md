@@ -1,6 +1,6 @@
 # Continuus Lenimentus [![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=master)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus)
 
-A SimpleCov Formatter for Local CI.
+A SimpleCov Formatter for Continuus Lenimentus Local CI. When the spec suite is run a file is generated with data on the state of the test suite. This is encrypted with a key to ensure minimal conflicts when using version control.
 
 ## Installation
 
@@ -18,24 +18,45 @@ Or install it yourself as:
 
 ## Usage
 
-Within your applications `.simplecov` file add `ContinuusLenimentus` as a formatter.
+Within your applications `.simplecov` file add `SimpleCov::Formatter::ContinuusLenimentusFormatter` as a formatter.
 
-    require 'simple-local-ci'
+    require 'continuus_lenimentus'
 
     SimpleCov.configure do
       start('rails') do
         formatter SimpleCov::Formatter::MultiFormatter[
           SimpleCov::Formatter::HTMLFormatter,
-          SimpleCov::Formatter::ContinuusLenimentus
+          SimpleCov::Formatter::ContinuusLenimentusFormatter
         ]
       end
+    end
+    
+And within your `spec_helper.rb` file add a configuration block if required.
+
+    require "simplecov"
+    require 'continuus_lenimentus'
+
+    ContinuusLenimentus.configure do |config|
+      config.key = 'MQofYpgCMZ79shxTtgYiQFEuvPdw'
+      config.file = 'ci.enc'
+      config.directory = Dir.getwd
+      condig.message = "CI generated."
     end
 
 Each time you run your spec suite a file will be generated.
 
+## Configuration
+
+* `key` is used when encrypting the generated file. `wdPvuEFQiYgtTxhs97ZMCgpYfoQM`
+* `file` is the name of the generated file. `continuus_lenimentus.enc`
+* `directory` is the directory where the generated file will be saved. `/coverage`
+* `message` is the output displayed on the screen each time the tests are run `Continuous Integration report generated.`
+
 ## Requirements
 
 * ruby > 1.9.x
+* simplecov > 0.7.x
+* gibberish > 1.3.x
 
 ## Contributing [![Maintained Status](http://stillmaintained.com/ChuckJHardy/ContinuusLenimentus.png)](http://stillmaintained.com/ChuckJHardy/ContinuusLenimentus)
 
