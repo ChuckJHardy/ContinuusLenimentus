@@ -17,6 +17,11 @@ module ContinuusLenimentus
 
   class SimpleCov::Formatter::ContinuusLenimentus
     def format(result)
+      Save.this(Adapter.new(result).as_json).tap do |_|
+        puts ContinuusLenimentus.configuration.message
+      end
+
+      result
     end
   end
 end
