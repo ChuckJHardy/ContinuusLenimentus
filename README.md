@@ -1,4 +1,6 @@
-# Continuus Lenimentus [![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=feature%2Fintegration)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus?branch=master)
+[![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=feature%2Fintegration)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus?branch=master) [![Code Climate](https://codeclimate.com/github/ChuckJHardy/ContinuusLenimentus.png)](https://codeclimate.com/github/ChuckJHardy/ContinuusLenimentus) [![Gem Version](https://badge.fury.io/rb/continuus_lenimentus.png)](http://badge.fury.io/rb/continuus_lenimentus) [![Dependency Status](https://gemnasium.com/ChuckJHardy/ContinuusLenimentus.png)](https://gemnasium.com/ChuckJHardy/ContinuusLenimentus)
+
+# Continuus Lenimentus
 
 A SimpleCov Formatter for Continuus Lenimentus Local CI. When the spec suite is run a file is generated with data on the state of the test suite. This is encrypted with a key to ensure minimal conflicts when using version control.
 
