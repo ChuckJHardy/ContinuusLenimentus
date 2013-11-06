@@ -15,7 +15,7 @@ module ContinuusLenimentus
     end
 
     def directory
-      SimpleCov.coverage_path
+      ContinuusLenimentus.configuration.directory
     end
   end
 end

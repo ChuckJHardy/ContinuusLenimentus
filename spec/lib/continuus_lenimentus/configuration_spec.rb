@@ -43,6 +43,28 @@ describe ContinuusLenimentus::Configuration do
     end
   end
 
+  describe "#directory" do
+    subject { instance.directory }
+
+    let(:default_directory) { '/User/Name/Code/Project/Random/coverage' }
+    let(:new_directory) { '/path/to/new/file' }
+
+    before { SimpleCov.stub(coverage_path: default_directory) }
+
+    it "returns a string" do
+      expect(subject).to be_an_instance_of(String)
+    end
+
+    it 'returns a default directory' do
+      expect(subject).to eq(default_directory)
+    end
+
+    it 'returns altered directory' do
+      instance.directory = new_directory
+      expect(subject).to eq(new_directory)
+    end
+  end
+
   describe "#message" do
     subject { instance.message }
 
