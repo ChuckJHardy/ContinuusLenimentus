@@ -15,13 +15,16 @@ module ContinuusLenimentus
     configuration
   end
 
-  class SimpleCov::Formatter::ContinuusLenimentusFormatter
-    def format(result)
-      Save.this(Adapter.new(result).as_json).tap do |_|
-        puts ContinuusLenimentus.configuration.message
-      end
-
-      result
+  def self.format(result)
+    Save.this(Adapter.new(result).as_json).tap do |_|
+      puts ContinuusLenimentus.configuration.message
     end
+  end
+end
+
+class SimpleCov::Formatter::ContinuusLenimentusFormatter
+  def format(result)
+    ContinuusLenimentus.format(result)
+    result
   end
 end

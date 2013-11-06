@@ -48,7 +48,7 @@ describe ContinuusLenimentus do
     it 'class off to Save with Adapted results' do
       ContinuusLenimentus::Save.should_receive(:this).with(data)
 
-      formatter.should_receive(:puts).
+      described_class.should_receive(:puts).
         with(ContinuusLenimentus.configuration.message)
 
       expect(subject).to eq(result)
