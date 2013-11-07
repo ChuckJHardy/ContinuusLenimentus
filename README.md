@@ -8,7 +8,7 @@ A SimpleCov Formatter for Continuus Lenimentus Local CI. When the spec suite is 
 
 Add this line to your application's Gemfile:
 
-    gem 'continuus_lenimentus', '~> 0.0.1'
+    gem 'continuus_lenimentus', '~> 0.0.2'
 
 And then execute:
 
