@@ -49,6 +49,7 @@ Each time you run your spec suite a file will be generated.
 
 ## Configuration
 
+* `encrypted` indicates whether the generated file should be encrypted. `true`
 * `key` is used when encrypting the generated file. `wdPvuEFQiYgtTxhs97ZMCgpYfoQM`
 * `file` is the name of the generated file. `continuus_lenimentus.enc`
 * `directory` is the directory where the generated file will be saved. `/coverage`

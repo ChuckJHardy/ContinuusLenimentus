@@ -3,6 +3,19 @@ require 'spec_helper'
 describe ContinuusLenimentus::Configuration do
   let(:instance) { described_class.new }
 
+  describe "#encrypted" do
+    subject { instance.encrypted }
+
+    it 'returns a default value' do
+      expect(subject).to eq(true)
+    end
+
+    it 'returns altered value' do
+      instance.encrypted = false
+      expect(subject).to eq(false)
+    end
+  end
+
   describe "#key" do
     subject { instance.key }
 
