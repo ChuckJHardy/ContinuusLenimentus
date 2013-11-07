@@ -17,8 +17,8 @@ module ContinuusLenimentus
     def as_hash
       {
         created_at: result.created_at,
-        duration: rspec.fetch(:duration),
-        counts: rspec.fetch(:counts),
+        duration: rspec.fetch(:duration, 0),
+        counts: rspec.fetch(:counts, {}),
         metrics: metrics
       }
     end
