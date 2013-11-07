@@ -73,7 +73,8 @@ describe ContinuusLenimentus do
 
     let(:data) { ContinuusLenimentus::Adapter.new(result).as_json }
 
-    it 'class off to Save with Adapted results' do
+    it 'calls off to Save with Adapted results' do
+      ContinuusLenimentus.configuration.encrypted = true
       ContinuusLenimentus::Save.should_receive(:this).with(data)
 
       described_class.should_receive(:puts).
