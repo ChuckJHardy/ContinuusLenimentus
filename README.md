@@ -11,7 +11,7 @@ Add this line to your application's Gemfile:
     group :test do
       gem 'rspec', '~> 2.14.1'
       gem 'simplecov', '~> 0.7.1', require: false
-      gem 'continuus_lenimentus', '~> 0.0.2', require: false
+      gem 'continuus_lenimentus', '~> 0.0.3', require: false
     end
 
 And then execute:
