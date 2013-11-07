@@ -9,10 +9,14 @@ module ContinuusLenimentus
     end
 
     def writer
-      File.open(path, mode) { |file| file.puts Safe.encrypt(@data) }
+      File.open(path, mode) { |file| file.puts data }
     end
 
     private
+
+    def data
+      encrypt? ? Safe.encrypt(@data) : @data 
+    end
 
     def mode
       'w+'
@@ -20,6 +24,10 @@ module ContinuusLenimentus
 
     def path
       Path.full
+    end
+
+    def encrypt?
+      ContinuusLenimentus.configuration.encrypted
     end
   end
 end

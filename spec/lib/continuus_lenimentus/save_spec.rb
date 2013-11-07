@@ -20,13 +20,35 @@ describe ContinuusLenimentus::Save do
     let(:path) { 'path/to/file' }
     let(:mode) { 'w+' }
     let(:file) { double('File') }
+    let(:encrypted) { true }
 
-    it 'writes encryped string to file' do
-      ContinuusLenimentus::Path.should_receive(:full).and_return(path)
-      File.should_receive(:open).with(path, mode).and_yield(file)
-      file.should_receive(:puts).with(an_instance_of(String))
+    before do
+      ContinuusLenimentus.configuration.encrypted = encrypted
+    end
 
-      subject
+    context 'with encryptd content' do
+      it 'writes encryped string to file' do
+        ContinuusLenimentus::Path.should_receive(:full).and_return(path)
+        ContinuusLenimentus::Safe.should_receive(:encrypt).
+          with(adapter).and_return('')
+
+        File.should_receive(:open).with(path, mode).and_yield(file)
+        file.should_receive(:puts).with('')
+
+        subject
+      end
+    end
+
+    context 'without encryptd content' do
+      let(:encrypted) { false }
+
+      it 'writes encryped string to file' do
+        ContinuusLenimentus::Path.should_receive(:full).and_return(path)
+        File.should_receive(:open).with(path, mode).and_yield(file)
+        file.should_receive(:puts).with(adapter)
+
+        subject
+      end
     end
   end
 end

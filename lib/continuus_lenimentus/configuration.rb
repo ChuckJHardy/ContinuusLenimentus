@@ -1,6 +1,6 @@
 module ContinuusLenimentus
   class Configuration
-    attr_accessor :encrypted, :key, :file, :directory, :message
+    attr_accessor :rspec, :encrypted, :key, :file, :directory, :message
 
     def initialize
       self.encrypted = true

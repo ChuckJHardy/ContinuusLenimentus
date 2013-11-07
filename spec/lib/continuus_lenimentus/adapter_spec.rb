@@ -19,7 +19,8 @@ describe ContinuusLenimentus::Adapter do
   let(:expected_hash) do
     {
       created_at: "2013-11-05 18:35:29 +0000",
-      command_name: "RSpec",
+      duration: duration,
+      counts: rspec_counts,
       metrics: {
         total_lines: 21,
         coverage: {
@@ -29,6 +30,48 @@ describe ContinuusLenimentus::Adapter do
         }
       }
     }
+  end
+
+  let(:duration) { 0.003537 }
+  let(:rspec_results) do
+    {
+      duration: duration,
+      counts: rspec_counts
+    }
+  end
+
+  let(:rspec_counts) do
+    {
+      example: 100, 
+      failure: 10, 
+      pending: 2
+    }
+  end
+
+  before do
+    ContinuusLenimentus::Runner.rspec.results = rspec_results
+  end
+
+  describe '#as_user' do
+    subject { instance.as_user }
+
+    before { ContinuusLenimentus.configuration.encrypted = encrypted }
+
+    context 'when encrypted' do
+      let(:encrypted) { true }
+
+      it 'returns the json response' do
+        expect(subject).to be_an_instance_of(String)
+      end
+    end
+
+    context 'when encryption' do
+      let(:encrypted) { false }
+
+      it 'returns the hash response' do
+        expect(subject).to eq(expected_hash)
+      end
+    end
   end
 
   describe '#as_json' do

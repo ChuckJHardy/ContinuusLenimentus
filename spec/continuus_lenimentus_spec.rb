@@ -27,6 +27,34 @@ describe ContinuusLenimentus do
     end
   end
 
+  describe '#dump_summary' do
+    subject { formatter.dump_summary(duration, example_count, failure_count, pending_count) }
+
+    let(:formatter) { ContinuusLenimentusRspecFormatter.new(output) }
+    let(:output) { double('Output', puts: '') }
+    let(:runner) { ContinuusLenimentus::Runner.rspec.results }
+    let(:duration) { 100 }
+    let(:example_count) { 10 }
+    let(:failure_count) { 1 }
+    let(:pending_count) { 2 }
+
+    let(:expected_hash) do
+      {
+        duration: duration,
+        counts: {
+          example: example_count, 
+          failure: failure_count, 
+          pending: pending_count
+        }
+      }
+    end
+
+    it 'assigns the runner rspec results instance' do
+      subject
+      expect(runner).to eq(expected_hash)
+    end
+  end
+
   describe '#format' do
     subject { formatter.format(result)  }
 

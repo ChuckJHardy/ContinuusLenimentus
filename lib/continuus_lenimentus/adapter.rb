@@ -6,6 +6,10 @@ module ContinuusLenimentus
       @result = result
     end
 
+    def as_user
+      encrypt? ? as_json : as_hash
+    end
+
     def as_json
       as_hash.to_json
     end
@@ -13,13 +17,18 @@ module ContinuusLenimentus
     def as_hash
       {
         created_at: result.created_at,
-        command_name: result.command_name,
+        duration: rspec.fetch(:duration),
+        counts: rspec.fetch(:counts),
         metrics: metrics
       }
     end
 
     private
     attr_reader :result
+
+    def rspec
+      ContinuusLenimentus::Runner.rspec.results
+    end
 
     def metrics
       {
@@ -38,6 +47,10 @@ module ContinuusLenimentus
 
     def strength
       result.covered_strength.nan? ? 0.0 : result.covered_strength
+    end
+
+    def encrypt?
+      ContinuusLenimentus.configuration.encrypted
     end
   end
 end

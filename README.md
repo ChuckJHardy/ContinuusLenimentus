@@ -2,13 +2,14 @@
 
 # Continuus Lenimentus
 
-A SimpleCov Formatter for Continuus Lenimentus Local CI. When the spec suite is run a file is generated with data on the state of the test suite. This is encrypted with a key to ensure minimal conflicts when using version control.
+A SimpleCov Formatter for Continuus Lenimentus Local CI. When the spec suite is run a file is generated with metrics and the state of the test suite.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    group :development, :test do
+    group :test do
+      gem 'rspec', '~> 2.14.1'
       gem 'simplecov', '~> 0.7.1', require: false
       gem 'continuus_lenimentus', '~> 0.0.2', require: false
     end
@@ -38,17 +39,70 @@ Within your applications `.simplecov` file add `SimpleCov::Formatter::ContinuusL
     
 And within your `spec_helper.rb` file add a configuration block if required.
 
+**Note**: The RSpec `ContinuusLenimentusRspecFormatter` formatter currently only supports the default `progress` format.
+
     require "simplecov"
     require 'continuus_lenimentus'
-
-    ContinuusLenimentus.configure do |config|
-      config.key = 'MQofYpgCMZ79shxTtgYiQFEuvPdw'
-      config.file = 'ci.enc'
-      config.directory = Dir.getwd
-      condig.message = "CI generated."
+    
+    RSpec.configure do |config|
+      config.formatter = ContinuusLenimentusRspecFormatter
     end
 
-Each time you run your spec suite a file will be generated.
+    ContinuusLenimentus.configure do |config|
+      config.encrypted = true
+      config.key       = 'MQofYpgCMZ79shxTtgYiQFEuvPdw'
+      config.file      = 'ci.enc'
+      config.directory = Dir.getwd
+      condig.message   = "CI generated."
+    end
+
+Each time you run your spec suite a file will be generated, in this case `/ci.enc`.
+
+## Generated File
+
+Regardless of encryption the file generated will contain the following data.
+
+    {
+      created_at: 2013-11-07 20:49:16 +0000, 
+      duration: 0.003154, 
+      counts: {
+        example: 28, 
+        failure: 2, 
+        pending: 1
+      }, 
+      metrics: {
+        total_lines: 521, 
+        coverage: {
+          percent: 100.0, 
+          strength: 1.1428571428571428, 
+          lines: 521
+        }
+      }
+    }
+
+## Encryption
+`Type (AES - 256)`
+
+The generated file is encrypted by default to ensure minimal conflicts when using version control. Be sure to set your private `key` within the configuration block if your wish to use encryption.
+
+There may be a case where you wish to append or alter the generated file before encrypting the content. In this case, be sure to set `encrypted` in the configuration block to `false`.
+
+    require "simplecov"
+    require 'continuus_lenimentus'
+    
+    ContinuusLenimentus::Safe.new('OnTheBeach').encrypt
+    # => "EnjUhJkaI..."
+
+## Decryption
+`Type (AES - 256)`
+
+The encrypted file is useless to you unless you can decrypt it.
+
+    require "simplecov"
+    require 'continuus_lenimentus'
+    
+    ContinuusLenimentus::Safe.new(generated_content).decrypt
+    # => { created_at: 2013-11-07 20:49:16 +0000... }
 
 ## Configuration
 
@@ -61,6 +115,7 @@ Each time you run your spec suite a file will be generated.
 ## Requirements
 
 * ruby > 1.9.x
+* rspec-core > 2.0.x
 * simplecov > 0.7.x
 * gibberish > 1.3.x
 
