@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=feature%2Fintegration)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus?branch=master) [![Code Climate](https://codeclimate.com/github/ChuckJHardy/ContinuusLenimentus.png)](https://codeclimate.com/github/ChuckJHardy/ContinuusLenimentus) [![Gem Version](https://badge.fury.io/rb/continuus_lenimentus.png)](http://badge.fury.io/rb/continuus_lenimentus) [![Dependency Status](https://gemnasium.com/ChuckJHardy/ContinuusLenimentus.png)](https://gemnasium.com/ChuckJHardy/ContinuusLenimentus)
+[![Build Status](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus.png)](https://travis-ci.org/ChuckJHardy/ContinuusLenimentus) [![Coverage Status](https://coveralls.io/repos/ChuckJHardy/ContinuusLenimentus/badge.png?branch=master)](https://coveralls.io/r/ChuckJHardy/ContinuusLenimentus?branch=master) [![Code Climate](https://codeclimate.com/github/ChuckJHardy/ContinuusLenimentus.png)](https://codeclimate.com/github/ChuckJHardy/ContinuusLenimentus) [![Gem Version](https://badge.fury.io/rb/continuus_lenimentus.png)](http://badge.fury.io/rb/continuus_lenimentus) [![Dependency Status](https://gemnasium.com/ChuckJHardy/ContinuusLenimentus.png)](https://gemnasium.com/ChuckJHardy/ContinuusLenimentus)
 
 # Continuus Lenimentus
 
@@ -11,7 +11,7 @@ Add this line to your application's Gemfile:
     group :test do
       gem 'rspec', '~> 2.14.1'
       gem 'simplecov', '~> 0.7.1', require: false
-      gem 'continuus_lenimentus', '~> 0.0.3', require: false
+      gem 'continuus_lenimentus', '~> 0.0.4', require: false
     end
 
 And then execute:
